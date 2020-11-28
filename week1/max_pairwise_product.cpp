@@ -23,7 +23,7 @@ unsigned long max_pair_prod(vector<unsigned int> in)
     if (in[i] > in[sec_max_idx] )
       sec_max_idx = i;
   }
-  return (unsigned long) (in[max_idx] * in[sec_max_idx]);
+  return ((unsigned long) in[max_idx] )* in[sec_max_idx];
 }
 
 
