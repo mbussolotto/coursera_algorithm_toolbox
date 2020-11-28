@@ -5,25 +5,30 @@ using namespace std;
 
 unsigned long max_pair_prod(vector<unsigned int> in)
 {
-  int max_idx = 0;
-  for(int i = 0; i < in.size(); i++ )
+  int max_idx = -1;
+  int max = 0;
+  for(int i = 0; i < in.size() ; i++ )
   {
-    if (in[i] > in[max_idx])
-      max_idx = i;
-  }
+    if (in[i] <= max)
+      continue;
 
-  int sec_max_idx = 0;
+    max = in[i];
+    max_idx = i;
+  }
+  int sec_max_idx = -1;
+  max = 0;
 
   for(int i = 0; i < in.size() ; i++ )
   {
     if (i == max_idx)
-    {
       continue;
-    }
-    if (in[i] > in[sec_max_idx] )
-      sec_max_idx = i;
+    if (in[i] <= max)
+      continue;
+    max = in[i];
+    sec_max_idx = i;
   }
-  return ((unsigned long) in[max_idx] )* in[sec_max_idx];
+
+  return ((unsigned long) in[max_idx] ) * in[sec_max_idx];
 }
 
 
