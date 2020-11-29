@@ -26,12 +26,15 @@ unsigned long fibonacci_fast(int n) {
 
     if (n <= 1)
       return n;
-    std::vector<unsigned long> fib;
-    fib.push_back(0l);
-    fib.push_back(1l);
+    int previous = 0;
+    int current = 1;
     for(int i = 2; i <=n; i++)
-      fib.push_back(fib[i-1] + fib[i-2]);
-    return fib[n];
+    {
+      int tmp = current;
+      current += previous;
+      previous = tmp;
+    }
+    return current;
 }
 
 void test_solution() {
