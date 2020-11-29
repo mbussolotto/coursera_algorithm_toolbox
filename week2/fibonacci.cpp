@@ -22,15 +22,15 @@ int fibonacci_naive(int n) {
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2);
 }
 
-unsigned long fibonacci_fast(int n) {
+unsigned long long fibonacci_fast(int n) {
 
     if (n <= 1)
       return n;
-    int previous = 0;
-    int current = 1;
+    unsigned long long  previous = 0;
+    unsigned long long  current = 1;
     for(int i = 2; i <=n; i++)
     {
-      int tmp = current;
+      unsigned long long tmp = current;
       current += previous;
       previous = tmp;
     }
@@ -45,7 +45,7 @@ void test_solution() {
 }
 
 int main() {
-    int n = 0;
+    unsigned long long n = 0;
     std::cin >> n;
 
     std::cout << fibonacci_fast(n) << '\n';
